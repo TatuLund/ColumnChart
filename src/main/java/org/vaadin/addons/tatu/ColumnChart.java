@@ -17,7 +17,7 @@ import elemental.json.impl.JreJsonFactory;
 public class ColumnChart extends Component {
 
     public enum ColumnChartAxis {
-        RIGHT("rightaxis"), LEFT("leftaxis");
+        RIGHT("rightaxis"), LEFT("leftaxis"), NONE("");
 
         String axis;
 
@@ -109,7 +109,12 @@ public class ColumnChart extends Component {
     }
 
     public void setAxis(ColumnChartAxis axis) {
-        getElement().setAttribute(axis.toString(), true);
+        if (axis == ColumnChartAxis.NONE) {
+            getElement().removeAttribute(ColumnChartAxis.RIGHT.toString());
+            getElement().removeAttribute(ColumnChartAxis.LEFT.toString());            
+        } else {
+            getElement().setAttribute(axis.toString(), true);
+        }
     }
 
     public void setColumnMargin(int margin) {

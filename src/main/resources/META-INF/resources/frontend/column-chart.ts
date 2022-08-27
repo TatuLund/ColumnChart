@@ -1,4 +1,5 @@
-import { customElement, property, css, html, LitElement } from 'lit-element';
+import { css, html, LitElement } from 'lit-element';
+import { customElement, property } from 'lit/decorators.js';
 
 interface Value {
 	number : number;
@@ -12,10 +13,10 @@ export class LabeledText extends LitElement {
   values : Value[] = [];
 
   @property({reflect: true})
-  colored = false;
+  colored : boolean = false;
 
   @property({reflect: true})
-  lines = true;
+  lines : boolean = true;
 
   color = 0;
 
@@ -99,13 +100,13 @@ export class LabeledText extends LitElement {
 			min=v.number;
 		}
 	});
-	var range;
+	var range : number;
 	if (min<0) {
 	    range=max+Math.abs(min);
 	} else {
 		range=max;
 	}
-	var style;
+	var style : string;
 	if (value > 0) {
 		style = "position: relative; bottom: "+100*Math.abs(Math.min(0,min))/range+"%;";
 	} else {
@@ -169,7 +170,7 @@ export class LabeledText extends LitElement {
 			min=v.number;
 		}
 	});
-	var middle;
+	var middle : number;
 	if (min < 0) {
 		middle = Math.min(0,min)+(max + Math.abs(min))/2;
 	} else {

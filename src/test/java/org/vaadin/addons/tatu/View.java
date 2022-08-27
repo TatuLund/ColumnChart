@@ -7,7 +7,7 @@ import java.util.List;
 import org.vaadin.addons.tatu.ColumnChart.ColumnChartAxis;
 import org.vaadin.addons.tatu.ColumnChart.ColumnChartValue;
 
-import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.page.AppShellConfigurator;
@@ -17,8 +17,9 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Display;
 import com.vaadin.flow.theme.lumo.LumoUtility.JustifyContent;
 
 @Route("")
-@CssImport("./styles.css")
-@NpmPackage(value = "lumo-css-framework", version = "^4.0.10")
+@NpmPackage(value = "@vaadin/vaadin-lumo-styles", version = "23.2.0-alpha2")
+@JsModule("@vaadin/vaadin-lumo-styles/utility.js")
+@JsModule("./lumo-utility.ts")
 public class View extends TabSheet implements AppShellConfigurator {
 
     public View() {
